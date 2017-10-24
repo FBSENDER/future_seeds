@@ -3,6 +3,25 @@ class TaskController < ApplicationController
   def home
     render plain: 'hello world'
   end
+
+  def target_groups
+    group_numbers = WorkerGroup.where(qq_number: params[:qq_number].to_i).pluck(:group_number)
+    render json: {status: 1, group_numbers: group_numbers}
+  end
+
+  def update_target_groups
+    group_numbers = params[:group_numbers].split(',')
+    wgs = WorkerGroup.where(qq_number: params[:qq_number].to_i)
+    wgs.each do |wg|
+      if group_numbers.include? wg.group_number
+        wg.status = 1
+      else
+        wg.status = wg.status == 1 ? -1 : 0
+      end
+      wg.save
+    end
+  end
+
   def task
     @tasks = Task.where(qq_number: params[:qq_number].to_i)
     render json: {status: 1, tasks: @tasks}
@@ -14,7 +33,7 @@ class TaskController < ApplicationController
       render json: {status: 1}
       return
     end
-    @task.sent_time = Time.now
+    @task.sent_at = Time.now
     @task.status = 1
     @task.save
     render json: {status: 1}
