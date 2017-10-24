@@ -28,7 +28,7 @@ class TaskController < ApplicationController
   end
 
   def task
-    @tasks = Task.where(qq_number: params[:qq_number].to_i)
+    @tasks = Task.where(qq_number: params[:qq_number].to_i, status: 0)
     render json: {status: 1, tasks: @tasks}
   end
 
