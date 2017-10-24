@@ -13,7 +13,7 @@ class TaskController < ApplicationController
     group_numbers = params[:group_numbers].split(',')
     wgs = WorkerGroup.where(qq_number: params[:qq_number].to_i)
     wgs.each do |wg|
-      if group_numbers.include? wg.group_number
+      if group_numbers.include?(wg.group_number.to_i)
         wg.status = 1
       else
         wg.status = wg.status == 1 ? -1 : 0
