@@ -20,6 +20,7 @@ class TaskController < ApplicationController
       end
       wg.save
     end
+    render json: {status: 1}
   end
 
   def task
