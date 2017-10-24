@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get "/finish/:id", to: "task#finish"
 
   get "/target_groups/:qq_number", to: "task#target_groups"
-  get "/update_taget_groups/:qq_number", to: "task#update_target_groups"
+  get "/update_target_groups/:qq_number", to: "task#update_target_groups"
 end
