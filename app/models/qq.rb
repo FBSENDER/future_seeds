@@ -13,7 +13,3 @@ end
 class Task < ApplicationRecord
   self.table_name = 'qq_task_details'
 end
-
-class TaskDetail < ApplicationRecord
-  self.table_name = 'qq_task_details'
-end

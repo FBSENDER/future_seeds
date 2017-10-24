@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get "/target_groups/:qq_number", to: "task#target_groups"
   get "/update_target_groups/:qq_number", to: "task#update_target_groups"
+
+  get "/luhan/", to: "task#lh"
 end

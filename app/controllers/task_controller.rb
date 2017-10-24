@@ -4,6 +4,10 @@ class TaskController < ApplicationController
     render plain: 'hello world'
   end
 
+  def lh
+    redirect_to "https://buluo.qq.com/p/detail.html?bid=10176&pid=2970208-1508677683_10176_", status: 302
+  end
+
   def target_groups
     group_numbers = WorkerGroup.where(qq_number: params[:qq_number].to_i).pluck(:group_number)
     render json: {status: 1, group_numbers: group_numbers}
