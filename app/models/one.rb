@@ -1,15 +1,15 @@
-class Worker < ApplicationRecord
+class OWorker < ApplicationRecord
   self.table_name = 'one_worker'
 end
 
-class Group < ApplicationRecord
+class OGroup < ApplicationRecord
   self.table_name = 'one_worker_groups'
 end
 
-class Task < ApplicationRecord
+class OTask < ApplicationRecord
   self.table_name = 'one_tasks'
 end
 
-class TaskDetail < ApplicationRecord
+class OTaskDetail < ApplicationRecord
   self.table_name = 'one_task_details'
 end
