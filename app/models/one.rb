@@ -1,5 +1,5 @@
 class OWorker < ApplicationRecord
-  self.table_name = 'one_worker'
+  self.table_name = 'one_workers'
 end
 
 class OGroup < ApplicationRecord
