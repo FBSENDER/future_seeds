@@ -10,7 +10,7 @@ class OneController < ApplicationController
       worker.save
     end
 
-    gs = Group.where(qq_nubmer: qq_number).pluck(:group_number)
+    gs = Group.where(qq_number: qq_number).pluck(:group_number)
     tasks = Task.where(status: 1).to_a
     groups.each do |group|
       next if gs.include(group)
@@ -38,7 +38,7 @@ class OneController < ApplicationController
   end
 
   def get_tasks
-    tasks = TaskDetail.where(qq_nubmer: params[:qq_number].to_i, status: 0)
+    tasks = TaskDetail.where(qq_number: params[:qq_number].to_i, status: 0)
     render json: {status: 1, tasks: tasks}
   end
 
