@@ -13,7 +13,7 @@ class OneController < ApplicationController
     gs = OGroup.where(qq_number: qq_number).pluck(:group_number)
     tasks = OTask.where(status: 1).to_a
     groups.each do |group|
-      next if gs.include(group)
+      next if gs.include?(group)
       g = OGroup.new
       g.qq_number = qq_number
       g.group_number = group
