@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   get "/update_target_groups/:qq_number", to: "task#update_target_groups"
 
   get "/luhan/", to: "task#lh"
+
+  get "/one/upload_groups/:qq_number", to: "one#upload_groups"
+  get "/one/get_tasks/:qq_number", to: "one#get_tasks"
+  get "/one/finish/:id", to: "one#finish"
 end
